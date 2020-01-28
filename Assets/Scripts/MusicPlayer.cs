@@ -8,7 +8,7 @@ public class MusicPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Invoke("LoadFirstScene", 20f);
+        Invoke("LoadFirstScene", 22.1f);
         DontDestroyOnLoad(this.gameObject);
     }
 
