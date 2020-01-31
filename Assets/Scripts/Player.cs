@@ -45,6 +45,11 @@ public class Player : MonoBehaviour
         Rotation();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        print("Woah nelly!");
+    }
+
     void Translation()
     {
         xThrow = Input.GetAxis("Horizontal");
