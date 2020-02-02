@@ -50,6 +50,11 @@ public class BetterWaypointFollower : MonoBehaviour {
         }
     }
 
+    public void SetRouteSpeed(float speed) //string referenced
+    {
+        routeSpeed = speed;
+    }
+
     // Pulling for invoke method variables.
     public void InitializeInvoke() {
         if(invokeObject == null || invokeObject.Length != circuit.Waypoints.Length) {
