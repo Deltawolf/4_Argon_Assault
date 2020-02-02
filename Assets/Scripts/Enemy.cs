@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject deathFX;
     [SerializeField] Transform parent;
+    [SerializeField] int remainingHits = 4;
 
     Scoreboard[] scoreBoard;
     bool hit = false;
@@ -23,13 +24,14 @@ public class Enemy : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (!hit)
+        remainingHits--;
+
+        if (remainingHits <= 0)
         {
-            hit = true;
             for (int i = 0; i < scoreBoard.Length; i++)
             {
                 scoreBoard[i].ScoreHit(10);
-                
+
             }
 
 
@@ -37,5 +39,6 @@ public class Enemy : MonoBehaviour
             fx.transform.parent = parent;
             Destroy(gameObject);
         }
+        
     }
 }

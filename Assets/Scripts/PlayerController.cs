@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -13,33 +14,25 @@ public class PlayerController : MonoBehaviour
     //Z is Roll
     [Header("General Parameters")]
     [Tooltip("In ms^-1")]
-    [SerializeField]
-    float xSpeed = 4.5f;
-    [SerializeField]
-    float xDistance = 5f;
-    [Tooltip("In ms^-1")]
-    [SerializeField]
-    float ySpeed = 4.5f;
-    [SerializeField]
-    float yDistance = 3f;
+    [SerializeField] float xSpeed = 4.5f;
+    [SerializeField] float xDistance = 5f;
+    [Tooltip("In ms^-1")] [SerializeField] float ySpeed = 4.5f;
+    [SerializeField] float yDistance = 3f;
+    [SerializeField] ParticleSystem[] guns;
 
     [Header("Screen-Based Parameters")]
-    [SerializeField]
-    float pitchFactor = -5f;
-    [SerializeField]
-    float yawFactor = 8f;
+    [SerializeField] float pitchFactor = -5f;
+    [SerializeField] float yawFactor = 8f;
 
     [Header("Control-Throw Based Parameters")]
-    [SerializeField]
-    float pitchControlFactor = -20f;
-    [SerializeField]
-    float yawControlFactor = 20f;
-    [SerializeField]
-    float rollControlFactor = -40f;
+    [SerializeField] float pitchControlFactor = -20f;
+    [SerializeField] float yawControlFactor = 20f;
+    [SerializeField] float rollControlFactor = -40f;
 
     float xThrow;
     float yThrow;
     bool isControlEnabled = true;
+    bool gunState = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,10 +46,23 @@ public class PlayerController : MonoBehaviour
         {
             Translation();
             Rotation();
+            Firing();
         }
     }
 
-    
+    void Firing()
+    {
+        if (Input.GetButtonDown("Fire") || Input.GetButton("Fire"))
+            gunState = true;
+        else
+            gunState = false;
+        for (int i = 0; i < guns.Length; i++)
+        {
+            var emission = guns[i].emission;
+            emission.enabled = gunState;
+
+        }
+    }
 
     void Translation()
     {
