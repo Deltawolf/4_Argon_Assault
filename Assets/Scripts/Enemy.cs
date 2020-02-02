@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
             for (int i = 0; i < scoreBoard.Length; i++)
             {
                 scoreBoard[i].ScoreHit(10);
-                print("hit " + i + " " +hit);
+                
             }
 
 
