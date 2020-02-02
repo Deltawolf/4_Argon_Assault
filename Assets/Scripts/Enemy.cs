@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform parent;
 
     Scoreboard[] scoreBoard;
+    bool hit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +23,19 @@ public class Enemy : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        for(int i = 0; i<scoreBoard.Length;i++)
+        if (!hit)
         {
-            scoreBoard[i].ScoreHit(10);
+            hit = true;
+            for (int i = 0; i < scoreBoard.Length; i++)
+            {
+                scoreBoard[i].ScoreHit(10);
+                print("hit " + i + " " +hit);
+            }
+
+
+            GameObject fx = Instantiate(deathFX, transform.position, Quaternion.identity);
+            fx.transform.parent = parent;
+            Destroy(gameObject);
         }
-        
-       
-        GameObject fx = Instantiate(deathFX, transform.position, Quaternion.identity);
-        fx.transform.parent = parent;
-        Destroy(gameObject);
     }
 }

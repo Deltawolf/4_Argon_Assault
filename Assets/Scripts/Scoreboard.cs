@@ -20,7 +20,7 @@ public class Scoreboard : MonoBehaviour
     {
        
         this.score += score;
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = "Score: " + this.score.ToString();
     }
 
 }
