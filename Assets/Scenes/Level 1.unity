@@ -3061,6 +3061,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637234514}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1655898400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2894128693896189060, guid: f8a34627f939c9348bc2a9a98254cbf3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2894128695141445366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1655898401
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655898400}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!320 &1655898402
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655898400}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 83f1a9f137783ee46a2a2d7ba3684cad, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 222021415074913804, guid: 83f1a9f137783ee46a2a2d7ba3684cad, type: 2}
+    value: {fileID: 1655898401}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1672365565
 GameObject:
   m_ObjectHideFlags: 0
